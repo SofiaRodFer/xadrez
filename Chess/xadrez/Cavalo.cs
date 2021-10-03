@@ -2,18 +2,15 @@
 
 namespace xadrez
 {
-    class Rei : Peca
+    class Cavalo : Peca
     {
-        private PartidaDeXadrez partida;
-
-        public Rei(Tabuleiro tab, Cor cor, PartidaDeXadrez partida) : base(tab, cor)
+        public Cavalo(Tabuleiro tab, Cor cor) : base(tab, cor)
         {
-            this.partida = partida;
         }
 
         public override string ToString()
         {
-            return "R";
+            return "C";
         }
 
         private bool podeMover(Posicao pos)
@@ -28,64 +25,43 @@ namespace xadrez
 
             Posicao pos = new Posicao(0, 0);
 
-            // Verificando ACIMA
-            pos.definirValores(posicao.linha - 1, posicao.coluna);
+            // Verificando POSIÇÕES
+            pos.definirValores(posicao.linha - 1, posicao.coluna - 2);
             if (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
             }
-
-            // Verificando NORDESTE
-            pos.definirValores(posicao.linha - 1, posicao.coluna + 1);
+            pos.definirValores(posicao.linha - 2, posicao.coluna - 1);
             if (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
             }
-
-            // Verificando ACIMA
-            pos.definirValores(posicao.linha, posicao.coluna + 1);
+            pos.definirValores(posicao.linha - 2, posicao.coluna + 1);
             if (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
             }
-
-            // Verificando DIREITA
-            posicao.definirValores(posicao.linha, posicao.coluna + 1);
+            pos.definirValores(posicao.linha - 1, posicao.coluna + 2);
             if (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
             }
-
-            // Verificando SUDESTE
-            pos.definirValores(posicao.linha + 1, posicao.coluna + 1);
+            pos.definirValores(posicao.linha + 1, posicao.coluna + 2);
             if (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
             }
-
-            // Verificando ABAIXO
-            pos.definirValores(posicao.linha + 1, posicao.coluna);
+            pos.definirValores(posicao.linha + 2, posicao.coluna + 1);
             if (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
             }
-
-            // Verificando SUDOESTE
-            pos.definirValores(posicao.linha + 1, posicao.coluna - 1);
+            pos.definirValores(posicao.linha + 2, posicao.coluna - 1);
             if (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
             }
-
-            // Verificando ESQUERDA
-            pos.definirValores(posicao.linha, posicao.coluna - 1);
-            if (tab.posicaoValida(pos) && podeMover(pos))
-            {
-                mat[pos.linha, pos.coluna] = true;
-            }
-
-            // Verificando NOROESTE
-            pos.definirValores(posicao.linha - 1, posicao.coluna - 1);
+            pos.definirValores(posicao.linha + 1, posicao.coluna - 2);
             if (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
