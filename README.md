@@ -25,7 +25,7 @@
 4. Rode `dotnet run` para iniciar o programa (é necessário ter a tecnologia .NET já instalada);
 5. Aguarde a compilação do código e estará pronto para uso.
 
-### ♟️ Jogadas especiais
+## ♟️ Jogadas especiais
 
 O aplicativo possui a lógica das jogadas especiais Roque Pequeno, Roque Grande, En Passant e Promoção plenamente implementadas. É possível realizá-las em ambos os lados do tabuleiro.
 
